@@ -29,8 +29,6 @@ jobs:
           cache: 'npm'
       - name: Download production artifacts
         uses: actions/download-artifact@v4
-        with:
-          name: dist
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
