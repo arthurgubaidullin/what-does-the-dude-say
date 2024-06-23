@@ -1,4 +1,4 @@
-name: CI
+name: CI & CD
 
 on:
   push:
@@ -29,11 +29,9 @@ jobs:
       - run: npx nx format:check
       - run: npx nx affected -t lint test build
 
-      - name: Upload production artifacts
-        uses: actions/upload-artifact@v4
+      - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          name: dist
-          path: |
-            dist/
-            .firebaserc
-            firebase.json
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_WHAT_DOES_THE_DUDE_SAY }}
+          channelId: live
+          projectId: what-does-the-dude-say
