@@ -1,6 +1,6 @@
 import { action, observable } from 'mobx';
-import * as NewMessage from './new-message';
 import * as Message from './message';
+import * as NewMessage from './new-message';
 
 export const create = () => {
   const messages$ = observable.array<Message.Message>([]);
