@@ -11,12 +11,13 @@ permissions:
   contents: read
 
 jobs:
-  main:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - uses: actions/setup-node@v3
         with:
           node-version: 20
@@ -27,7 +28,33 @@ jobs:
       - uses: nrwl/nx-set-shas@v4
 
       - run: npx nx format:check
+
       - run: npx nx affected -t lint test build
+
+  deploy:
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - run: npm ci
+
+      # - name: Cache directory
+      #   uses: actions/cache@v3
+      #   env:
+      #     cache-name: cache-dot-firebase
+      #   with:
+      #     path: .firebase
+      #     key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.firebase/**') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-build-${{ env.cache-name }}-
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
