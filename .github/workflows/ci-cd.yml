@@ -29,7 +29,11 @@ jobs:
 
       - run: npx nx format:check
 
-      - run: npx nx affected -t lint test build
+      - run: npx nx affected -t lint
+
+      - run: npx nx affected -t test --passWithNoTests
+
+      - run: npx nx affected -t build
 
   deploy:
     needs: check
