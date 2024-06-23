@@ -31,7 +31,7 @@ export const create = (addNewMessage: (newMessage: NewMessage) => void) => {
 
   onBecomeUnobserved(client$, () => {
     seq = seq.then(async () => {
-      client$.get().disconnect();
+      await client$.get().disconnect();
     });
   });
 
