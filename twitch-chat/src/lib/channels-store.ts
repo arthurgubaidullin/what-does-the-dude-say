@@ -1,4 +1,4 @@
-import { computed, observable } from 'mobx';
+import { action, computed, observable } from 'mobx';
 
 export const create = () => {
   const channels$ = observable.set<string>([]);
@@ -9,11 +9,11 @@ export const create = () => {
 
   return {
     getList: () => asList$.get(),
-    add: (channel: string) => {
+    add: action((channel: string) => {
       channels$.add(channel);
-    },
-    remove: (channel: string) => {
+    }),
+    remove: action((channel: string) => {
       channels$.delete(channel);
-    },
+    }),
   };
 };
