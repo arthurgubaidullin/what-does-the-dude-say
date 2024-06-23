@@ -1,1 +1,1 @@
-export * from './lib/twitch-chat';
+export * from './lib/new-message';
