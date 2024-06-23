@@ -8,6 +8,12 @@ on:
     workflows: ['CI']
     types:
       - completed
+    branches:
+      - main
+
+permissions:
+  actions: read
+  contents: read
 
 jobs:
   build_and_deploy:
