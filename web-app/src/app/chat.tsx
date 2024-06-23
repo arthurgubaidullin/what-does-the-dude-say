@@ -8,7 +8,7 @@ export const Chat = observer((props?: { class?: string }) => {
   const messages = client.messages.map((message) => (
     <div className="chat chat-end" key={message.id}>
       <div className="chat-header">
-        {message.from}{' '}
+        {message.from} {message.channel}{' '}
         <time className="text-xs opacity-50">
           {message.date.toLocaleTimeString()}{' '}
           {message.date.toLocaleDateString()}
