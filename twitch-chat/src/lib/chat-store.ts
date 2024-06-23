@@ -16,7 +16,7 @@ export const create = () => {
   });
 
   return {
-    messages: messages$,
+    list: messages$,
     addMessage,
   };
 };
