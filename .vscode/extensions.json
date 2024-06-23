@@ -1,7 +1,10 @@
 {
   "recommendations": [
-    
-    "nrwl.angular-console",
-    "esbenp.prettier-vscode"
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "ms-vscode.makefile-tools",
+    "firsttris.vscode-jest-runner",
+    "eamodio.gitlens",
+    "github.vscode-github-actions"
   ]
 }
