@@ -32,3 +32,6 @@ test: install lint
 
 lint: install
 	$(NX) run-many -t lint --fix
+
+format_check:
+	$(NX) format:check --all
