@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "process",
+      "command": "make",
+      "options": {
+        "env": {
+          "INSTALL": "false",
+          "CI": "false"
+        }
+      },
+      "group": { "isDefault": true, "kind": "build" },
+      "problemMatcher": [],
+      "label": "make",
+      "detail": "make",
+      "presentation": {
+        "clear": true
+      }
+    }
+  ]
+}
