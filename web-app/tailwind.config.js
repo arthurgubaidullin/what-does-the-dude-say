@@ -1,5 +1,7 @@
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
 const { join } = require('path');
+const daisyui = require('daisyui');
+const typography = require('@tailwindcss/typography');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -13,5 +15,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/typography'), require('daisyui')],
+  plugins: [typography, daisyui],
 };
