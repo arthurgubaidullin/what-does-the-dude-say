@@ -46,16 +46,6 @@ jobs:
 
       - run: npm ci
 
-      # - name: Cache directory
-      #   uses: actions/cache@v3
-      #   env:
-      #     cache-name: cache-dot-firebase
-      #   with:
-      #     path: .firebase
-      #     key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.firebase/**') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-build-${{ env.cache-name }}-
-
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
