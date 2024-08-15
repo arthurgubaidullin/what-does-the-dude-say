@@ -20,6 +20,7 @@ export const Chat = observer((props?: { class?: string }) => {
 
   useEffect(() => {
     client.join('c_a_k_e');
+    client.join('perdolique');
   }, []);
 
   return <div className={props?.class ?? ''}>{messages}</div>;
