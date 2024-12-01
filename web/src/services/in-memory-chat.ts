@@ -1,14 +1,9 @@
-import {
-  computed,
-  effect,
-  signal,
-  Signal,
-  type ReadonlySignal,
-} from '@preact/signals';
-import type { ChatService, Message } from './chat';
+import { computed, signal, Signal, type ReadonlySignal } from '@preact/signals';
 import { nanoid as generateId } from 'nanoid';
+import type { ChatService, Message } from './chat';
 
 export class InMemoryChatService implements ChatService {
+  #limit: number = 100;
   #messages: Signal<Map<string, Message & { addedAt: Date }>>;
 
   constructor() {
@@ -23,10 +18,6 @@ export class InMemoryChatService implements ChatService {
         content: 'test ' + n++,
       });
     }, 3000);
-
-    effect(() => {
-      console.log(this.#messages.value);
-    });
   }
 
   addMessage(newMessage: Message) {
@@ -37,9 +28,17 @@ export class InMemoryChatService implements ChatService {
       addedAt: new Date(),
     };
 
-    const messages = this.#messages.peek();
+    let messages = this.#messages.peek().set(message.id, message);
 
-    this.#messages.value = new Map(messages.set(message.id, message));
+    if (messages.size >= this.#limit) {
+      messages = new Map(
+        Array.from(messages.entries())
+          .sort(([, m1], [, m2]) => m2.addedAt.getTime() - m1.addedAt.getTime())
+          .slice(0, this.#limit),
+      );
+    }
+
+    this.#messages.value = new Map(messages);
   }
 
   get messages(): ReadonlySignal<readonly Message[]> {
