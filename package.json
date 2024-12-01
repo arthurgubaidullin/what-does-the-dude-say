@@ -3,7 +3,11 @@
   "workspaces": [
     "web"
   ],
-  "scripts": {},
+  "scripts": {
+    "build": "turbo build",
+    "test": "turbo test",
+    "lint": "turbo lint"
+  },
   "devDependencies": {
     "knip": "5.38.3",
     "prettier": "3.4.1",
