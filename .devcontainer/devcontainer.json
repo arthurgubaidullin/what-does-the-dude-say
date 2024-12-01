@@ -18,13 +18,15 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "astro-build.astro-vscode",
+        "bradlc.vscode-tailwindcss",
+        "eamodio.gitlens",
         "EditorConfig.EditorConfig",
         "esbenp.prettier-vscode",
-        "ms-vscode.makefile-tools",
-        "firsttris.vscode-jest-runner",
-        "eamodio.gitlens",
         "github.vscode-github-actions",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.makefile-tools",
+        "vitest.explorer"
       ]
     }
   },
