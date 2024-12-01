@@ -1,3 +1,4 @@
+import type { ChannelService } from './channel';
 import type { ChatService } from './chat';
 import type { Program } from './program';
 import type { SpeecherService } from './speecher';
@@ -7,6 +8,7 @@ export class InMemoryProgram implements Program {
   constructor(
     public readonly chat: ChatService,
     public readonly speecher: SpeecherService,
+    public readonly channel: ChannelService,
   ) {
     effect(() => {
       const lastMessage = this.chat.lastMessage.value;

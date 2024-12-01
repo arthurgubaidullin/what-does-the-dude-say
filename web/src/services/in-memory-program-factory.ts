@@ -1,4 +1,5 @@
 import { BrowserSpeecher } from './browser-speecher';
+import { InMemoryChannelService } from './in-memory-channel';
 import { InMemoryChatService } from './in-memory-chat';
 import { InMemoryProgram } from './in-memory-program';
 import { type Program } from './program';
@@ -10,6 +11,7 @@ export class InMemoryProgramFactory {
     return new InMemoryProgram(
       new InMemoryChatService(),
       new BrowserSpeecher(),
+      new InMemoryChannelService(),
     );
   }
 }
