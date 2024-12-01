@@ -1,4 +1,23 @@
 {
   "version": "2.0.0",
-  "tasks": []
+  "tasks": [
+    {
+      "type": "shell",
+      "command": ["turbo", "build", "test", "lint"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "turbo: build",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": true
+      }
+    }
+  ]
 }
