@@ -4,9 +4,9 @@ import {
   type ReadonlySignal,
   type Signal,
 } from '@preact/signals-core';
-import { type Speecher, type SpeecherWithSignals } from './speecher';
+import { type Speecher, type SpeecherService } from './speecher';
 
-export class BrowserSpeecher implements SpeecherWithSignals {
+export class BrowserSpeecher implements SpeecherService {
   #state: Signal<Speecher>;
 
   constructor() {

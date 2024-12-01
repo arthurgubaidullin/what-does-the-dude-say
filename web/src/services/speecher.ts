@@ -1,6 +1,6 @@
 import { type ReadonlySignal } from '@preact/signals';
 
-interface SpeecherSignals {
+interface SpeecherState {
   readonly active: ReadonlySignal<boolean>;
   readonly inActive: ReadonlySignal<boolean>;
 }
@@ -11,4 +11,4 @@ export interface Speecher {
   readonly deactivate: () => void;
 }
 
-export type SpeecherWithSignals = Speecher & SpeecherSignals;
+export type SpeecherService = Speecher & SpeecherState;
