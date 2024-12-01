@@ -67,6 +67,7 @@ class Active {
   }
 
   deactivate() {
+    window.speechSynthesis.cancel();
     this.transitionToState(new InActive(this.transitionToState));
   }
 
