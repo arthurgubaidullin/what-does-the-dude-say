@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "command": "npx astro dev --host",
+      "name": "web",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/web"
+    }
+  ]
+}
