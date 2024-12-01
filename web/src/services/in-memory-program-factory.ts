@@ -3,6 +3,7 @@ import { InMemoryChannelService } from './in-memory-channel';
 import { InMemoryChatService } from './in-memory-chat';
 import { InMemoryProgram } from './in-memory-program';
 import { type Program } from './program';
+import { SimpleTwitchService } from './simple-twitch';
 
 export class InMemoryProgramFactory {
   private constructor() {}
@@ -12,6 +13,7 @@ export class InMemoryProgramFactory {
       new InMemoryChatService(),
       new BrowserSpeecher(),
       new InMemoryChannelService(),
+      new SimpleTwitchService('vika_karter'),
     );
   }
 }
