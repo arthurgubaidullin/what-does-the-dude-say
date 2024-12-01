@@ -1,6 +1,8 @@
 {
   "private": true,
-  "workspaces": [],
+  "workspaces": [
+    "web"
+  ],
   "scripts": {},
   "devDependencies": {
     "knip": "5.38.3",
