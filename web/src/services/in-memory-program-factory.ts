@@ -13,7 +13,7 @@ export class InMemoryProgramFactory {
       new InMemoryChatService(),
       new BrowserSpeecher(),
       new InMemoryChannelService(),
-      new SimpleTwitchService('vika_karter'),
+      new SimpleTwitchService(),
     );
   }
 }

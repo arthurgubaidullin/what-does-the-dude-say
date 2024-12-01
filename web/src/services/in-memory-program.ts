@@ -13,6 +13,16 @@ export class InMemoryProgram implements Program {
     public readonly twitch: TwitchService,
   ) {
     effect(() => {
+      const channel = this.channel.name.value;
+
+      if (!channel) {
+        return;
+      }
+
+      this.twitch.changeChannel(channel);
+    });
+
+    effect(() => {
       const message = this.twitch.lastMessage.value;
 
       if (!message) {

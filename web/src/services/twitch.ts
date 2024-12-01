@@ -8,4 +8,5 @@ export interface Message {
 
 export interface TwitchService {
   readonly lastMessage: ReadonlySignal<Message | undefined>;
+  readonly changeChannel: (channel: string) => void;
 }
