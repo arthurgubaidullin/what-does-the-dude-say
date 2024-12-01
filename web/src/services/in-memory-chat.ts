@@ -1,5 +1,4 @@
 import { computed, signal, Signal, type ReadonlySignal } from '@preact/signals';
-import { nanoid as generateId } from 'nanoid';
 import type { ChatService, Message } from './chat';
 
 export class InMemoryChatService implements ChatService {
@@ -8,16 +7,6 @@ export class InMemoryChatService implements ChatService {
 
   constructor() {
     this.#messages = signal(new Map());
-
-    let n = 1;
-
-    setInterval(() => {
-      this.addMessage({
-        id: generateId(),
-        from: 'Pirojok',
-        content: 'test ' + n++,
-      });
-    }, 3000);
   }
 
   addMessage(newMessage: Message) {
