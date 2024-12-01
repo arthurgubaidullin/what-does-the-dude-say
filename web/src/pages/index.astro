@@ -1,4 +1,5 @@
 ---
+import { Chat } from '../components/chat';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -6,19 +7,6 @@ import Layout from '../layouts/Layout.astro';
   <main class="grid gap-8">
     <h1 class="text-1xl">What does the dude say?</h1>
 
-    <section class="grid gap-4">
-      <h2 class="text-5xl">Chat messages</h2>
-
-      <div>
-        <div class="chat chat-start">
-          <div class="chat-header">Obi-Wan Kenobi</div>
-          <div class="chat-bubble">You were the Chosen One!</div>
-        </div>
-        <div class="chat chat-start">
-          <div class="chat-header">Obi-Wan Kenobi</div>
-          <div class="chat-bubble">I loved you.</div>
-        </div>
-      </div>
-    </section>
+    <Chat client:only="preact" />
   </main>
 </Layout>
