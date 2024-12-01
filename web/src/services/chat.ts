@@ -8,5 +8,6 @@ export interface Message {
 
 export interface ChatService {
   readonly messages: ReadonlySignal<readonly Message[]>;
+  readonly lastMessage: ReadonlySignal<Message | undefined>;
   readonly addMessage: (message: Message) => void;
 }

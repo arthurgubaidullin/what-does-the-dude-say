@@ -41,12 +41,20 @@ export class InMemoryChatService implements ChatService {
     this.#messages.value = new Map(messages);
   }
 
-  get messages(): ReadonlySignal<readonly Message[]> {
+  get lastMessage() {
+    return computed(() => this.sortedMessages.value[0]);
+  }
+
+  private get sortedMessages() {
     return computed(() => {
       return Array.from(this.#messages.value.values()).toSorted(
         (message1, message2) =>
           message2.addedAt.getTime() - message1.addedAt.getTime(),
       );
     });
+  }
+
+  get messages(): ReadonlySignal<readonly Message[]> {
+    return this.sortedMessages;
   }
 }
