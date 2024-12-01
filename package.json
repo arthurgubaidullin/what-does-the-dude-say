@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "workspaces": [],
+  "scripts": {},
+  "devDependencies": {},
+  "author": {
+    "name": "Artur Gubaidullin",
+    "url": "https://github.com/arthurgubaidullin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurgubaidullin/what-does-the-dude-say.git"
+  },
+  "license": "MIT",
+  "packageManager": "npm@10.9.1"
+}
