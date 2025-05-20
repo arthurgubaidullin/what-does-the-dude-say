@@ -3,7 +3,9 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "dependencies": {},
+  "dependencies": {
+    "@what-does-the-dude-say/interfaces": "*"
+  },
   "scripts": {
     "prebuild": "rm -rf *.tsbuildinfo dist",
     "build": "tsc -p tsconfig-build.json",
