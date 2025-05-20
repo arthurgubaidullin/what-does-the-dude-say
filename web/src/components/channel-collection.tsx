@@ -16,7 +16,7 @@ export const ChannelCollection = (props: { channels: ChannelsService }) => {
             <li key={channel.id}>
               {channel.data.value.name}{' '}
               <button
-                className="btn"
+                className="btn btn-xs btn-ghost"
                 onClick={async () => await channel.remove()}
               >
                 Remove
