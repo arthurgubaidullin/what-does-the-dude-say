@@ -10,6 +10,7 @@
       },
       "problemMatcher": [],
       "label": "turbo: build",
+      "icon": { "id": "sparkle" },
       "presentation": {
         "echo": true,
         "reveal": "silent",
