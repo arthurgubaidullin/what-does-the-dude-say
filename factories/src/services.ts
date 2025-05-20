@@ -1,5 +1,6 @@
 import {
   Channels,
+  IdbChannelsRepository,
   InMemoryChannelsRepository,
 } from '@what-does-the-dude-say/channels';
 import type {
@@ -12,7 +13,13 @@ let instance: null | Services = null;
 
 export const services = (): _Services => {
   if (instance === null) {
-    const repository: ChannelsRepository = new InMemoryChannelsRepository();
+    let repository: ChannelsRepository;
+
+    if ('indexedDB' in window) {
+      repository = new IdbChannelsRepository();
+    } else {
+      repository = new InMemoryChannelsRepository();
+    }
 
     const channelsService = new Channels(repository);
 
