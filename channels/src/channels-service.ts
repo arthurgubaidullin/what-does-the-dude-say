@@ -1,19 +1,26 @@
-import { signal, type ReadonlySignal, type Signal } from '@preact/signals';
+import {
+  computed,
+  signal,
+  type ReadonlySignal,
+  type Signal,
+} from '@preact/signals';
 import type {
   ChannelData,
+  ChannelService,
   ChannelsRepository,
   ChannelsService,
   NewChannelData,
   Unsubscribe,
 } from '@what-does-the-dude-say/interfaces';
 import { createChannelData } from './channel-data';
+import { Channel } from './channel-service';
+import type { RemoveChannel } from './interfaces';
 
-export class Channels implements ChannelsService {
-  #repository: ChannelsRepository;
-  #items: Signal<ReadonlyArray<ChannelData>>;
+export class Channels implements ChannelsService, RemoveChannel {
+  readonly #repository: ChannelsRepository;
+  readonly #items: Signal<ReadonlyArray<ChannelData>> = signal([]);
 
   constructor(repository: ChannelsRepository) {
-    this.#items = signal([]);
     this.#repository = repository;
   }
 
@@ -23,14 +30,22 @@ export class Channels implements ChannelsService {
     return () => {};
   }
 
-  get items(): ReadonlySignal<ReadonlyArray<ChannelData>> {
-    return this.#items;
+  get items(): ReadonlySignal<ReadonlyArray<ChannelService>> {
+    return computed(() =>
+      this.#items.value.map((data) => new Channel(this, data)),
+    );
   }
 
   async add(newChannelData: NewChannelData): Promise<void> {
     const channelData = createChannelData(newChannelData);
 
     this.#repository.add(channelData);
+
+    this.#update();
+  }
+
+  async remove(this: this, channelId: string): Promise<void> {
+    await this.#repository.remove(channelId);
 
     this.#update();
   }

@@ -13,7 +13,15 @@ export const ChannelCollection = (props: { channels: ChannelsService }) => {
       ) : (
         <ul className="list-none">
           {channels.items.value.map((channel) => (
-            <li key={channel.id}>{channel.name}</li>
+            <li key={channel.id}>
+              {channel.data.value.name}{' '}
+              <button
+                className="btn"
+                onClick={async () => await channel.remove()}
+              >
+                Remove
+              </button>
+            </li>
           ))}
         </ul>
       )}
