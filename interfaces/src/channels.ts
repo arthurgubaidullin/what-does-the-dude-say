@@ -16,5 +16,5 @@ export interface ChannelsRepository {
 
 export interface ChannelsService {
   readonly items: ReadonlySignal<ReadonlyArray<ChannelData>>;
-  readonly add: (channelData: NewChannelData) => void;
+  readonly add: (newChannelData: NewChannelData) => void;
 }
