@@ -1,12 +1,12 @@
 import type { ChannelsService } from '@what-does-the-dude-say/interfaces';
 
-export const AddNewChannelForm = (props: { channels: ChannelsService }) => {
+export const NewChannelForm = (props: { channels: ChannelsService }) => {
   const { channels } = props;
 
   return (
     <div className="grid gap-4">
       <div>
-        <h2 className="text-3xl">Add New Channel Form</h2>
+        <h2 className="text-3xl">New Channel Form</h2>
       </div>
       <form
         onSubmit={(e) => {

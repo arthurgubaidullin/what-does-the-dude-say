@@ -1,6 +1,6 @@
 import { services } from '@what-does-the-dude-say/factories';
 import { ChannelCollection } from './channel-collection';
-import { AddNewChannelForm } from './add-new-channel-form';
+import { NewChannelForm } from './new-channel-form';
 
 const { channels } = services();
 
@@ -11,7 +11,7 @@ export const ChannelsPage = () => {
 
       <ChannelCollection channels={channels} />
 
-      <AddNewChannelForm channels={channels} />
+      <NewChannelForm channels={channels} />
     </main>
   );
 };
