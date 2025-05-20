@@ -3,7 +3,7 @@ import { type SpeecherService } from '../services/speecher';
 export const OnOffSpeecher = (props: { speecher: SpeecherService }) => {
   const speecher = props.speecher;
   return (
-    <label class="swap">
+    <label className="swap">
       <input
         type="checkbox"
         checked={speecher.active}
@@ -17,7 +17,7 @@ export const OnOffSpeecher = (props: { speecher: SpeecherService }) => {
       />
 
       <svg
-        class="swap-on fill-current"
+        className="swap-on fill-current"
         xmlns="http://www.w3.org/2000/svg"
         width="48"
         height="48"
@@ -27,7 +27,7 @@ export const OnOffSpeecher = (props: { speecher: SpeecherService }) => {
       </svg>
 
       <svg
-        class="swap-off fill-current"
+        className="swap-off fill-current"
         xmlns="http://www.w3.org/2000/svg"
         width="48"
         height="48"

@@ -2,8 +2,8 @@ import type { ChannelService } from '../services/channel';
 
 export const ChangeChannelForm = (props: { channel: ChannelService }) => {
   return (
-    <section class="grid gap=4">
-      <h2 class="text-5xl">Change channel</h2>
+    <section className="grid gap=4">
+      <h2 className="text-5xl">Change channel</h2>
 
       <form
         onSubmit={(e) => {
@@ -19,17 +19,17 @@ export const ChangeChannelForm = (props: { channel: ChannelService }) => {
 
           props.channel.select(channel);
         }}
-        class="grid gap-4"
+        className="grid gap-4"
       >
-        <label class="form-control w-full">
-          <div class="label">
-            <span class="label-text">What is your channel?</span>
+        <label className="form-control w-full">
+          <div className="label">
+            <span className="label-text">What is your channel?</span>
           </div>
           <input
             type="text"
             name="name"
             placeholder="Type here"
-            class="input input-bordered w-full"
+            className="input input-bordered w-full"
             required
             value={props.channel.name}
             autoComplete="off"
@@ -37,7 +37,7 @@ export const ChangeChannelForm = (props: { channel: ChannelService }) => {
         </label>
 
         <div>
-          <input class="btn" type="submit" />
+          <input className="btn" type="submit" />
         </div>
       </form>
     </section>
