@@ -1,0 +1,16 @@
+{
+  "name": "@what-does-the-dude-say/factories",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@what-does-the-dude-say/interfaces": "*"
+  },
+  "scripts": {
+    "prebuild": "rm -rf *.tsbuildinfo dist",
+    "build": "tsc -p tsconfig-build.json",
+    "test": "vitest . --run",
+    "lint": "eslint ."
+  },
+  "private": true
+}

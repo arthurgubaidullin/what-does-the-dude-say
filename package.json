@@ -4,6 +4,7 @@
     "interfaces",
     "channels",
     "services",
+    "factories",
     "web"
   ],
   "scripts": {
