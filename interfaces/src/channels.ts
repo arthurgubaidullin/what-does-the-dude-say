@@ -12,6 +12,7 @@ export type NewChannelData = Readonly<{
 export interface ChannelsRepository {
   readonly items: () => Promise<ReadonlyArray<ChannelData>>;
   readonly add: (channelData: ChannelData) => Promise<void>;
+  readonly remove: (channelId: string) => Promise<void>;
 }
 
 export type Unsubscribe = () => void;

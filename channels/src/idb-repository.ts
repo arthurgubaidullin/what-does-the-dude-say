@@ -61,4 +61,32 @@ export class IdbChannelsRepository implements ChannelsRepository {
       await tx.done;
     }
   }
+
+  async remove(this: this, channelId: string): Promise<void> {
+    const db = await this.#db();
+
+    const tx = db.transaction('channels', 'readwrite', {
+      durability: 'strict',
+    });
+
+    try {
+      const currentChannelData = await tx
+        .objectStore('channels')
+        .get(channelId);
+
+      if (currentChannelData === undefined) {
+        return;
+      }
+
+      await tx.objectStore('channels').delete(channelId);
+
+      tx.commit();
+    } catch (error) {
+      console.error(error);
+
+      tx.abort();
+    } finally {
+      await tx.done;
+    }
+  }
 }

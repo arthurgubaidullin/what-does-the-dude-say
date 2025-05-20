@@ -21,4 +21,12 @@ export class InMemoryChannelsRepository implements ChannelsRepository {
 
     this.#items.set(channelData.id, channelData);
   }
+
+  async remove(this: this, channelId: string): Promise<void> {
+    if (!this.#items.has(channelId)) {
+      return;
+    }
+
+    this.#items.delete(channelId);
+  }
 }
