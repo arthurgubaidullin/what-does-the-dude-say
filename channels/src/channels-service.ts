@@ -20,7 +20,7 @@ export class Channels implements ChannelsService {
     return this.#items;
   }
 
-  add(newChannelData: NewChannelData): void {
+  async add(newChannelData: NewChannelData): Promise<void> {
     const channelData = createChannelData(newChannelData);
 
     this.#repository.add(channelData);
@@ -28,8 +28,8 @@ export class Channels implements ChannelsService {
     this.#update();
   }
 
-  #update(this: this) {
-    const items = this.#repository.items();
+  async #update(this: this) {
+    const items = await this.#repository.items();
 
     this.#items.value = items;
   }

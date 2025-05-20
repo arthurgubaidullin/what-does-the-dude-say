@@ -10,11 +10,11 @@ export type NewChannelData = Readonly<{
 }>;
 
 export interface ChannelsRepository {
-  readonly items: () => ReadonlyArray<ChannelData>;
-  readonly add: (channelData: ChannelData) => void;
+  readonly items: () => Promise<ReadonlyArray<ChannelData>>;
+  readonly add: (channelData: ChannelData) => Promise<void>;
 }
 
 export interface ChannelsService {
   readonly items: ReadonlySignal<ReadonlyArray<ChannelData>>;
-  readonly add: (newChannelData: NewChannelData) => void;
+  readonly add: (newChannelData: NewChannelData) => Promise<void>;
 }

@@ -10,11 +10,11 @@ export class InMemoryChannelsRepository implements ChannelsRepository {
     this.#items = new Map();
   }
 
-  items(this: this): ReadonlyArray<ChannelData> {
+  async items(this: this): Promise<ReadonlyArray<ChannelData>> {
     return Array.from(this.#items.values());
   }
 
-  add(this: this, channelData: ChannelData): void {
+  async add(this: this, channelData: ChannelData): Promise<void> {
     if (this.#items.has(channelData.id)) {
       return;
     }
