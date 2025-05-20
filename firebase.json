@@ -8,6 +8,6 @@
         "destination": "/index.html"
       }
     ],
-    "predeploy": ["npm run build -w web"]
+    "predeploy": ["turbo build --filter web"]
   }
 }
