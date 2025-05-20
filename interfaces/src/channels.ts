@@ -1,13 +1,13 @@
-type ChannelData = Readonly<{
+export type ChannelData = Readonly<{
   id: string;
   name: string;
 }>;
 
-type NewChannelData = Readonly<{
+export type NewChannelData = Readonly<{
   name: string;
 }>;
 
 export interface ChannelsRepository {
   readonly items: () => ReadonlyArray<ChannelData>;
-  readonly add: (newChannelData: NewChannelData) => void;
+  readonly add: (channelData: ChannelData) => void;
 }
