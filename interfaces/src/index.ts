@@ -1,1 +1,1 @@
-export const lol = 'pirojok';
+export * from './channels';
