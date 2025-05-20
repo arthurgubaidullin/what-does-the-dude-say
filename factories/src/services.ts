@@ -5,10 +5,16 @@ import {
 import type { Services as _Services } from '@what-does-the-dude-say/interfaces';
 import { Services } from '@what-does-the-dude-say/services';
 
+let instance: null | Services = null;
+
 export const services = (): _Services => {
-  const repository = new InMemoryChannelsRepository();
+  if (instance === null) {
+    const repository = new InMemoryChannelsRepository();
 
-  const channelsService = new Channels(repository);
+    const channelsService = new Channels(repository);
 
-  return new Services(channelsService);
+    instance = new Services(channelsService);
+  }
+
+  return instance;
 };
