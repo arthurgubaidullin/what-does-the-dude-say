@@ -14,7 +14,7 @@ interface ChannelsDB extends DBSchema {
 
 export class IdbChannelsRepository implements ChannelsRepository {
   async #db() {
-    const db = await openDB<ChannelsDB>('Channels', 1, {
+    return await openDB<ChannelsDB>('Channels', 1, {
       upgrade(db) {
         const store = db.createObjectStore('channels', {
           keyPath: 'id',
@@ -24,8 +24,6 @@ export class IdbChannelsRepository implements ChannelsRepository {
         store.createIndex('by-name', 'name', { unique: true });
       },
     });
-    console.log('Database opened.');
-    return db;
   }
 
   async items(this: this): Promise<ReadonlyArray<ChannelData>> {
