@@ -9,7 +9,7 @@
         "isDefault": true
       },
       "problemMatcher": [],
-      "label": "turbo: build",
+      "label": "turbo: build test lint",
       "icon": { "id": "sparkle" },
       "presentation": {
         "echo": true,
