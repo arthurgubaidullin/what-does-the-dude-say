@@ -17,7 +17,9 @@
     "preact": "^10.26.6",
     "tailwindcss": "^4.1.7",
     "tmi.js": "^1.8.5",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "@what-does-the-dude-say/interfaces": "*",
+    "@what-does-the-dude-say/factories": "*"
   },
   "devDependencies": {
     "@types/tmi.js": "^1.8.6",
