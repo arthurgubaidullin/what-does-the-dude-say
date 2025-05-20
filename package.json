@@ -2,6 +2,7 @@
   "private": true,
   "workspaces": [
     "channels",
+    "services",
     "web"
   ],
   "scripts": {
