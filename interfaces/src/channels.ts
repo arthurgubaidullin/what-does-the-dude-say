@@ -14,7 +14,10 @@ export interface ChannelsRepository {
   readonly add: (channelData: ChannelData) => Promise<void>;
 }
 
+export type Unsubscribe = () => void;
+
 export interface ChannelsService {
   readonly items: ReadonlySignal<ReadonlyArray<ChannelData>>;
   readonly add: (newChannelData: NewChannelData) => Promise<void>;
+  readonly subscribe: () => Unsubscribe;
 }

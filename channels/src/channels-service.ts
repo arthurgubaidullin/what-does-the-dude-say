@@ -4,6 +4,7 @@ import type {
   ChannelsRepository,
   ChannelsService,
   NewChannelData,
+  Unsubscribe,
 } from '@what-does-the-dude-say/interfaces';
 import { createChannelData } from './channel-data';
 
@@ -14,6 +15,12 @@ export class Channels implements ChannelsService {
   constructor(repository: ChannelsRepository) {
     this.#items = signal([]);
     this.#repository = repository;
+  }
+
+  subscribe(this: this): Unsubscribe {
+    this.#update();
+
+    return () => {};
   }
 
   get items(): ReadonlySignal<ReadonlyArray<ChannelData>> {

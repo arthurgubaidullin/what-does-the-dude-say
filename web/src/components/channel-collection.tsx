@@ -1,7 +1,10 @@
 import type { ChannelsService } from '@what-does-the-dude-say/interfaces';
+import { useEffect } from 'preact/hooks';
 
 export const ChannelCollection = (props: { channels: ChannelsService }) => {
   const { channels } = props;
+
+  useEffect(() => channels.subscribe(), [channels]);
 
   return (
     <>
