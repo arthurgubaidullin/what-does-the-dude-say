@@ -16,5 +16,10 @@ export default defineConfig([
   },
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-  { ignores: ['**/dist/**'] },
+  { ignores: ['**/dist/**', '**/.astro/**'] },
+  {
+    rules: {
+      'react/react-in-jsx-scope': 'off',
+    },
+  },
 ]);
