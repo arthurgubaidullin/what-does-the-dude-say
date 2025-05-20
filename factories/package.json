@@ -4,7 +4,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@what-does-the-dude-say/interfaces": "*"
+    "@what-does-the-dude-say/interfaces": "*",
+    "@what-does-the-dude-say/channels": "*",
+    "@what-does-the-dude-say/services": "*"
   },
   "scripts": {
     "prebuild": "rm -rf *.tsbuildinfo dist",
