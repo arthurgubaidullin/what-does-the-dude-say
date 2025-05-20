@@ -6,4 +6,4 @@ If you already have VS Code and Docker installed, you can click the badge above 
 
 ## Demo
 
-[what-does-the-dude-say.web.app](https://what-does-the-dude-say.web.app)
+[what-does-the-dude-say.web.app](https://what-does-the-dude-say.web.app/?utm_source=repo&utm_medium=github&utm_content=readme)
