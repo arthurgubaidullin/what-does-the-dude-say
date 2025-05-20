@@ -1,0 +1,8 @@
+---
+import { ChannelsPage } from '../components/channels-page';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <ChannelsPage client:only="preact" />
+</Layout>
