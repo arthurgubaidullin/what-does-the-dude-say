@@ -5,6 +5,7 @@ import type {
   ChannelsService,
   NewChannelData,
 } from '@what-does-the-dude-say/interfaces';
+import { createChannelData } from './channel-data';
 
 export class Channels implements ChannelsService {
   #repository: ChannelsRepository;
@@ -20,10 +21,7 @@ export class Channels implements ChannelsService {
   }
 
   add(newChannelData: NewChannelData): void {
-    const channelData: ChannelData = {
-      id: newChannelData.name.trim().toLowerCase(),
-      name: newChannelData.name,
-    };
+    const channelData = createChannelData(newChannelData);
 
     this.#repository.add(channelData);
 
