@@ -21,7 +21,7 @@ export class Channels implements ChannelsService {
 
   add(newChannelData: NewChannelData): void {
     const channelData: ChannelData = {
-      id: crypto.randomUUID(),
+      id: newChannelData.name.trim().toLowerCase(),
       name: newChannelData.name,
     };
 

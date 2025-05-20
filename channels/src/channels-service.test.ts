@@ -27,7 +27,7 @@ describe('channels-service', () => {
     const service = new Channels(repository);
 
     service.add({ name: 'test' });
-    service.add({ name: 'test' });
+    service.add({ name: 'test 2' });
 
     expect(service.items.peek().length).toStrictEqual(2);
   });
